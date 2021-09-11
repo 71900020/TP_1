@@ -35,7 +35,9 @@ namespace TP_1
                     case "3":
                     //TODO: Criar fluxo/método sacar
                     case "4":
-                    //TODO: Criar fluxo/método consular saldo
+                        Console.WriteLine($"Saldo: {conta.ConsultarSaldo()}");
+                        opcao = "4";
+                        break;
                     default:
                         break;
                 }
@@ -56,6 +58,11 @@ namespace TP_1
         {
             Nome = nome;
             Saldo = saldo;
+        }
+        
+        public double ConsultarSaldo()
+        {
+            return Saldo;
         }
     }
 
