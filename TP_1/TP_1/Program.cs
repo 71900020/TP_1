@@ -37,7 +37,11 @@ namespace TP_1
                         opcao = "2";
                         break;
                     case "3":
-                    //TODO: Criar fluxo/método sacar
+                    	Console.WriteLine($"Digite o valor do saque:");
+                        var valorSaque = Convert.ToDouble(Console.ReadLine());
+                        Console.WriteLine(conta.Sacar(valorSaque));
+                        opcao = "3";
+                        break;
                     case "4":
                         Console.WriteLine($"Saldo: {conta.ConsultarSaldo()}");
                         opcao = "4";
@@ -77,6 +81,22 @@ namespace TP_1
             {
                 throw ;
             } 
+        }
+	    
+	    public string Sacar(double valor)
+        {
+            try
+            {
+                if (valor > Saldo)
+                    return "Valor de saque maior que o saldo";
+
+                Saldo -= valor;
+                return "Saque realizado";                    
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         
         public double ConsultarSaldo()
