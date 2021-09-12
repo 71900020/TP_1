@@ -31,7 +31,11 @@ namespace TP_1
                             break;
                         }
                     case "2":
-                    //TODO: Criar fluxo/método depositar
+						Console.WriteLine($"Digite o valor do depósito:");
+                        var valorDeposito = Convert.ToDouble(Console.ReadLine());
+                        Console.WriteLine(conta.Depositar(valorDeposito));
+                        opcao = "2";
+                        break;
                     case "3":
                     //TODO: Criar fluxo/método sacar
                     case "4":
@@ -58,6 +62,21 @@ namespace TP_1
         {
             Nome = nome;
             Saldo = saldo;
+        }
+		
+		public string Depositar(double valor) {
+            try
+            {
+                if (valor < 0)
+                    return "Não é possível fazer depósito com valor negativo";
+
+                Saldo += valor;
+                return "Valor depositado com sucesso";
+            }
+            catch (Exception)
+            {
+                throw ;
+            } 
         }
         
         public double ConsultarSaldo()
